@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import CalculationGroup from './Calculation.js'
+
+
+
+const calcCircle = [
+  ['Area', (x) => Math.PI*x*x],
+  ['Circumference', (x) => Math.PI*2*x],
+];
+const calcSquare = [
+  ['Area of square', (x) => x*x],
+  ['Circumference of square', (x) => 4*x],
+]
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <div className='calculation-box'>
+    <CalculationGroup label='Circle'calculations={calcCircle}/>
+    <CalculationGroup label='Square (equal side lengths)'calculations={calcSquare}/>
+  </div>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
